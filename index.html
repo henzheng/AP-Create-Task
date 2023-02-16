@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Map Generator</title>
+    <title>Valorant Generator</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
@@ -12,17 +12,18 @@
 </head>
 <body>
     <div class="topbar">
-        <h1 class="title">VALORANT Map Generator</h1>
+        <h1 class="title">VALORANT Random Generator</h1>
         <img class="topbar-image" src="/valorant.png" alt="valorant logo">
     </div>
     <form class="generator-options">
-        <button id="submit-button" type="button">Generate maps</button>
+        <button id="map-button" type="button">Generate maps</button>
+        <button id="agent-button" type="button">Generate agents</button>
         <div class="checkbox-wrapper">
-            <input type="checkbox" id="repeat-checkbox" name="repeat-checkbox">
+            <input type="checkbox" id="allow-repeats-checkbox" name="checkbox">
             <label for="repeat-checkbox">Allow Repeats</label>
         </div>
     </form>
-    <div id="output"></div>
-    <script type="module" src="./main.js"></script>
+    <div id="output-container"></div>
+    <script type="module" src="./index.js"></script>
 </body>
 </html>

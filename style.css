@@ -107,6 +107,7 @@ button:focus-visible {
   font-family: 'Nunito', sans-serif;
   font-size: 1rem;
 }
+
 .checkbox-wrapper {
   display: flex;
   align-items: center;
@@ -116,6 +117,11 @@ button:focus-visible {
   font-weight: 500;
   background-color: #1a1a1a;
 }
+
+.checkbox-wrapper:hover {
+  border-color: #646cff;
+}
+
 .generator-options {
   font-family: 'Nunito', sans-serif;
   color: #fff;
@@ -124,6 +130,7 @@ button:focus-visible {
   justify-content: center;
   gap: 2rem;
 }
+
 .map {
   font-family: 'Nunito', sans-serif;
   font-size: 0.75rem;
