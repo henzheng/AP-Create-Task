@@ -86,6 +86,7 @@ button {
     font-weight: 500;
     background-color: var(--light-gray);
     transition: ease-in-out 0.3s;
+    cursor: pointer;
 }
 
 button:hover {
@@ -115,6 +116,10 @@ button:hover {
 
 .checkbox-wrapper:hover {
     border-color: var(--light-red);
+}
+
+#allow-repeats-checkbox {
+    cursor: pointer;
 }
 
 .generator-options {
