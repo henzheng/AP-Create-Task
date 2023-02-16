@@ -4,9 +4,125 @@
     --light-red: #E61928;
     --dark-gray: #1E2327;
     --dark-red: #6B070B;
+    --white: rgba(255, 255, 255, 0.87);
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
+    background-color: var(--dark-gray);
+    color: rgba(255, 255, 255, 0.87);
+}
+
+.topbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.title {
+    font-size: 3rem;
+}
+
+.logo {
+    width: 64px;
+}
+
+.map, .agent {
+    font-family: 'Nunito', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--light-gray);
+    width: 30vw;
+    margin: 15px;
+    cursor: pointer;
+    transition: all ease 0.3s;
+    border: 1px solid transparent;
+    border-color: var(--light-red);
+    border-radius: 0.3rem;
+}
+
+.map:hover, .agent:hover{
+    background-color: var(--dark-red);
+    margin-top: -1rem;
+}
+
+.map > .map-splash {
+    border-radius: 1rem;
+    width: 80%;
+}
+
+.map-name, .map-coordinates {
+    font-size: 1.2rem;
+}
+
+.agent-image {
+    width: 50%;
+}
+
+.agent-role-icon {
+    position: relative;
+    top: 1.5rem;
+    width: 32px;
+}
+
+.agent-description {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.8rem;
+}
+
+button {
+    font-family: 'Nunito' sans-serif;
+    color: var(--white);
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-weight: 500;
+    background-color: var(--light-gray);
+    transition: ease-in-out 0.3s;
+}
+
+button:hover {
+    border-color: var(--light-red);
+}
+
+#output-container {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid transparent;
+    background-color: var(--light-gray);
+    transition: ease-in-out 0.3s;
+    align-self: stretch;
+    border-radius: 8px;
+    padding: 0.8rem;
+}
+
+.checkbox-wrapper:hover {
+    border-color: var(--light-red);
+}
+
+.generator-options {
+    font-family: 'Nunito', sans-serif;
+    color: var(--white);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
 }

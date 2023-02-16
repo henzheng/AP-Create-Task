@@ -1,4 +1,4 @@
-import './style.css';
+import './index.css';
 // Defining the DOM selectors as a constant object
 const domSelectors = {
   mapButton: document.getElementById('map-button'),
@@ -9,7 +9,13 @@ const domSelectors = {
 
 // Defining a function to generate a random set of maps or agent to be displayed
 async function generateCards(query) {
-  const API_URL = `https://valorant-api.com/v1/${query}/`;
+  let API_URL;
+  if (query === 'agents') {
+    API_URL = `https://valorant-api.com/v1/${query}/?isPlayableCharacter=true`;
+  }
+  else if (query === 'maps') {
+    API_URL = `https://valorant-api.com/v1/${query}/`;
+  }
   const response = await fetch(API_URL);
   const rawData = await response.json();
   const data = rawData.data;
@@ -33,7 +39,7 @@ async function generateCards(query) {
 
 //Defining a function to create an HTML element given the data and type
 function createHTMLElement(data, type) {
-    if(type === 'maps') {
+    if (type === 'maps') {
         const mapElement = document.createElement('div');
         mapElement.className = 'map';
         mapElement.innerHTML = `
@@ -43,12 +49,13 @@ function createHTMLElement(data, type) {
         `;
         return mapElement;
     }
-    else if(type == 'agents') {
+    else if (type == 'agents') {
         const agentElement = document.createElement('div');
         agentElement.className = 'agent';
         agentElement.innerHTML = `
         <h3 class="agent-name">${data.displayName}</h3>
         <img src="${data.displayIcon}" alt="${data.displayName}" class="agent-image">
+        <img src="${data.role.displayIcon}" alt="${data.role.displayName} icon" class="agent-role-icon">
         <p class="agent-description">${data.description}</p>
       `;
       return agentElement;
