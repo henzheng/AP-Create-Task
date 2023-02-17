@@ -31,35 +31,39 @@ async function generateCards(query) {
     }
     generatedArray.push(randomEntry);
   }
-  for (const entry of generatedArray) {
-    const element = createHTMLElement(entry, query);
+  const HTMLElements = createHTMLElements(generatedArray, query);
+  for (const element of HTMLElements) {
     domSelectors.container.appendChild(element);
   }
 }
 
 //Defining a function to create an HTML element given the data and type
-function createHTMLElement(data, type) {
-    if (type === 'maps') {
-        const mapElement = document.createElement('div');
-        mapElement.className = 'map';
-        mapElement.innerHTML = `
-          <h3 class="map-name">${data.displayName}</h3>
-          <img src="${data.splash}" alt="Splash art of ${data.displayName}" class="map-splash">
-          <p class="map-coordinates">${data.coordinates}</p>
+function createHTMLElements(data, type) {
+    let HTMLElements = [];
+    for (const entry of data) {
+      if (type === 'maps') {
+          const mapElement = document.createElement('div');
+          mapElement.className = 'map';
+          mapElement.innerHTML = `
+            <h3 class="map-name">${entry.displayName}</h3>
+            <img src="${entry.splash}" alt="Splash art of ${entry.displayName}" class="map-splash">
+            <p class="map-coordinates">${entry.coordinates}</p>
+          `;
+          HTMLElements.push(mapElement);
+      }
+      else if (type == 'agents') {
+          const agentElement = document.createElement('div');
+          agentElement.className = 'agent';
+          agentElement.innerHTML = `
+          <h3 class="agent-name">${entry.displayName}</h3>
+          <img src="${entry.displayIcon}" alt="${entry.displayName}" class="agent-image">
+          <img src="${entry.role.displayIcon}" alt="${entry.role.displayName} icon" class="agent-role-icon">
+          <p class="agent-description">${entry.description}</p>
         `;
-        return mapElement;
+        HTMLElements.push(agentElement);
+      }
     }
-    else if (type == 'agents') {
-        const agentElement = document.createElement('div');
-        agentElement.className = 'agent';
-        agentElement.innerHTML = `
-        <h3 class="agent-name">${data.displayName}</h3>
-        <img src="${data.displayIcon}" alt="${data.displayName}" class="agent-image">
-        <img src="${data.role.displayIcon}" alt="${data.role.displayName} icon" class="agent-role-icon">
-        <p class="agent-description">${data.description}</p>
-      `;
-      return agentElement;
-    }
+    return HTMLElements;
 }
 
 // Add event listeners to both the map and agent generate buttons
